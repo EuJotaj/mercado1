@@ -1,0 +1,211 @@
+/* Estilos gerais da navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  /* Lado esquerdo: logo */
+  .logo {
+    height: 60px;
+  }
+  
+  /* Centro: barra de busca */
+  .navbar-cen {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .searchbar {
+    width: 60%;
+    max-width: 400px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  /* Lado direito: ícones */
+  .navbar-dir .icon {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+  }
+  
+  /* Empurra conteúdo da página para baixo da navbar */
+  body {
+    padding-top: 60px;
+  }
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    backdrop-filter: blur(0px) saturate(2);
+    -webkit-backdrop-filter: blur(30px) saturate(2);
+    width: 240px;
+    height: 100%;
+    border-right: 3px solid #fc8c06;
+    transition: all 0.8s;
+    padding-inline: 0;
+    padding-block: 13px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding-top: 150px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.sidebar.closed{
+    margin-left: -180px;
+    flex-basis: 0;
+}
+
+
+.sidebar-header{
+    width:100%;
+    margin-bottom: 16px;
+}
+
+#sidebar-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    margin: 100px 10px
+}
+
+#sidebar-icon{
+    width: 100px;
+    height: 100px;
+    margin-left: 0px;
+    object-fit: cover;
+}
+
+#sidebar-icon:hover{
+    transform: scale(1.1);
+}
+
+#sidebar-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar button{
+    height: 50px;
+    background-color: tranparent;
+    border: 0px solid;
+    cursor: pointer;
+    display: flex;
+    font-family: inherit; 
+    text-decoration: none; 
+    align-items: center;
+}
+
+.sidebar button > span{
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 16px 0 12px;
+    border-radius: 24px;
+}
+
+.sidebar button:hover > span {
+    background-color: #fc8c06;
+    position: relative;
+    font-size: 30px;
+    transition: 0.2s;
+}
+
+.sidebar button span{
+    font-size: 16px;
+}
+
+.sidebar > nav{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.main{
+    margin-left: 250px;
+    margin-right: 6px;
+    overflow: hidden;
+    padding: 20px;
+    transition: all 0.8s;
+        flex: 1;
+        flex-wrap: wrap;
+        flex-direction: column;
+        overflow: auto;
+        transition: 2.2s cubic-bezier(.36, -0.01, 0, .77);
+    }
+      
+.sidebar.closed + .main{
+    margin-left: 70px;
+    transition: all 0.8s;
+}
+
+@media (width < 920px){
+    .sidebar{
+        width: 60px;
+
+    }
+
+    .sidebar button > span{
+        width: 50px;
+    }
+
+    .sidebar button > span > span{
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s;
+    };
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    background-color: #fc8c06;
+    color: white;
+    text-align: center;
+    padding: max;
+    font-size: 14px;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content-1 {
+    display: flex;
+    align-items: left;
+    text-align: left;
+    background-color: transparent;
+    flex-direction: column;
+
+}
+
+main{
+    margin-left: 250px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-top: 60px;
+}
+

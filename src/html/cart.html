@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho de Compras - Loja Online</title>
+    <link rel="stylesheet" href="/src/css/style2.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="/src/img/logoshops.png" type="image/png" />
+    <script src="/src/js/script.js" defer></script>
+    <style>
+        /* Estilos específicos para a página do carrinho */
+        .cart-container {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .cart-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Espaça os itens horizontalmente */
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-details h4 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .cart-item-price {
+            color: #fc8c06;
+            font-weight: bold;
+            margin-left: 10px; /* Espaço da quantidade */
+        }
+
+        .cart-item-quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-controls button {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .quantity-controls span {
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .remove-from-cart {
+            background: none;
+            border: none;
+            color: #d9534f;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 15px;
+        }
+
+        .remove-from-cart:hover {
+            text-decoration: underline;
+        }
+
+        .cart-summary {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: right;
+        }
+
+        .cart-summary h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .cart-total {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #fc8c06;
+        }
+
+        .checkout-button {
+            display: inline-block;
+            background-color: #fc8c06; /* Cor de destaque para o checkout */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .checkout-button:hover {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #fc8c06;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<header class="navbar">
+        <div class="navbar-left">
+            <a href="home.html"> <img src="/src/img/logoshops.png" alt="logo" class="logo" />
+            </a>
+        </div>
+        <div class="navbar-cen">
+            <input type="text" placeholder="Pesquisar produtos..." class="searchbar" />
+            <button id="submit"><img src="/src/img/procurar.png" alt="procurar"></button>
+        </div>
+        <div class="navbardir">
+            <a href="#"><i class="fas fa-user icon"></i></a>
+            <a href="#"><i class="fas fa-heart icon"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-cart icon"></i><span class="cart-count">0</span></a>
+        </div>
+    </header>
+<aside class="sidebar" id="mainSidebar">
+        <button onclick="goToPageWithTransition('products.html')" id="sidebarProdutos">
+            <a href="#">
+                <span>
+                    <img src="/src/img/sacola-de-compras.png" width="25px" />
+                    <span class="sideoption">Produtos</span>
+                </span>
+            </a>
+        </button>
+        <button onclick="goToPageWithTransition('cart.html')" id="sidebarCarrinho">
+            <a href="#">
+                <span>
+                    <img src="/src/img/carrinho-de-compras.png" width="25px" />
+                    <span class="sideoption">Carrinho</span>
+                </span>
+            </a>
+        </button>
+        <button onclick="goToPageWithTransition('about.us.html')" id="sidebarSobreNos">
+            <a href="#">
+                <span>
+                    <img src="/src/img/documento.png" width="25px" />
+                    <span class="sideoption">Sobre Nós</span>
+                </span>
+            </a>
+        </button>
+        <button onclick="goToPageWithTransition('Contact.html')" id="sidebarContato">
+            <a href="#">
+                <span>
+                    <img src="/src/img/telefone-circular.png" width="25px" />
+                    <span class="sideoption">Contato</span>
+                </span>
+            </a>
+        </button>
+    </aside>
+<main class="main cart-container">
+        <h1 class="cart-title">Seu Carrinho de Compras</h1>
+        <ul class="cart-items" id="cart-items-list">
+            </ul>
+        <div class="cart-summary" id="cart-summary">
+            </div>
+        <a href="#" class="checkout-button">Finalizar Compra</a>
+    </main>
+<footer class="footer">
+        <div class="footer-top">
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Email: suporte@lojashop.com.br</p>
+                <p>Telefone: (XX) XXXXX-XXXX</p>
+                <p>Endereço: Rua Exemplo, 123 - PE, BR</p>
+            </div>
+            <div class="footer-section">
+                <h3>Siga-nos</h3>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><br>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><br>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Loja Online. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Store Home</title>
+  <link rel="stylesheet" href="/src/css/style2.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" href="/src/img/logoshops.png" type="image/png" />
+  <script src="/src/js/script.js" defer></script>
+  <style>
+    /* Estilos específicos para a página inicial (além do style2.css) */
+    .hero {
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+    }
+
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+
+    .hero .button {
+        display: inline-block;
+        background-color: #fc8c06; /* Cor primária da loja */
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero .button:hover {
+        background-color: #e07e05;
+    }
+
+    .featured-products {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .featured-products h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .product-grid-home {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .product-card-home {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+
+    .product-card-home:hover {
+        transform: scale(1.03);
+    }
+
+    .product-card-home img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .product-card-home h3 {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .product-card-home p {
+        color: #fd8e08;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .featured-categories {
+        padding: 40px 20px;
+        text-align: center;
+        background-color: #f9f9f9;
+    }
+
+    .featured-categories h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .category-grid {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .category-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .category-card:hover {
+        transform: scale(1.05);
+    }
+
+    .category-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+
+    .category-card h4 {
+        font-size: 1.1em;
+        color: #333;
+    }
+</style>
+
+</head>
+<body>
+
+  <!-- NAVBAR-->
+  <header class="navbar">
+    <div class="navbar-left">
+        <a href="home.html"> <img src="/src/img/logoshops.png" alt="logo" class="logo" />
+        </a>
+    </div>
+    <div class="navbar-cen">
+      <input type="text" placeholder="Pesquisar produtos..." class="searchbar" />
+    </div>
+    <div class="navbardir">
+      <i class="fas fa-user icon"></i>
+      <i class="fas fa-heart icon"></i>
+    </div>
+  </header>
+
+  <!-- SIDEBAR-->
+
+  <aside class="sidebar">
+    <button onclick="goToPageWithTransition('products.html')">
+        <span>
+            <img src="/src/img/sacola-de-compras.png" width="25px" />
+            <span class="sideoption">Produtos</span>
+        </span>
+
+    </button>
+    <button onclick="goToPageWithTransition('cart.html')">
+        <span>
+            <img src="/src/img/carrinho-de-compras.png" width="25px" />
+            <span class="sideoption">Carrinho</span>
+        </span>
+
+    </button>
+    <button onclick="goToPageWithTransition('about.us.html')">
+        <span>
+            <img src="/src/img/documento.png" width="25px" />
+            <span class="sideoption">Sobre Nós</span>
+        </span>
+
+    </button>
+    <button onclick="goToPageWithTransition('Contact.html')">
+        <span>
+            <img src="/src/img/telefone-circular.png" width="25px" />
+            <span class="sideoption">Contato</span>
+        </span>
+    </button>
+</aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main">
+    <div class="Contact">
+      <h1>Contate-nos!</h1>
+      <p>Se você tiver alguma dúvida ou precisar de assistência, não hesite em entrar em contato conosco.</p>
+      <p>Email: example@email.com</p>
+      <a href="https://www.instagram.com/" target="_blank">
+        <p>Instagram</p>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top"> <div class="footer-section">
+            <h3>Links Úteis</h3>
+            <ul>
+                <li><a href="#">Termos de Serviço</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contato</h3>
+            <p>Email: suporte@lojashop.com.br</p>
+            <p>Telefone: (XX) XXXXX-XXXX</p>
+            <p>Endereço: Rua Exemplo, 123 - PE, BR</p>
+        </div>
+        <div class="footer-section">
+            <h3>Siga-nos</h3>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><br>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><br>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Loja Online. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
